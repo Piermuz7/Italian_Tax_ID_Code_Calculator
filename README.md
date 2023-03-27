@@ -1,0 +1,3 @@
+# Italian_Tax_ID_Code_Calculator
+The Italian fiscal code, officially known in Italy as Codice fiscale, is the tax code in Italy, similar to a Social Security Number (SSN) in the United States or the National Insurance Number issued in the United Kingdom. It is an alphanumeric code of 16 characters. The code serves to unambiguously identify individuals irrespective of citizenship or residency status. Designed by and for the Italian tax office, it is now used for several other purposes, e.g. uniquely identifying individuals in the health system, or natural persons who act as parties in private contracts. The code is issued by the Italian tax office, the Agenzia delle Entrate.
+
