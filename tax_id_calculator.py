@@ -191,14 +191,14 @@ if __name__ == "__main__":
         description="Calculate the Italian Tax ID for the given person data",
         epilog="Piermuz thanks you for using %(prog)s ;)",
     )
-    parser.add_argument('-s', '--surname', help="the surname", type=str, required=True)
-    parser.add_argument('-n', '--name', help="the name", type=str, required=True)
-    parser.add_argument('-y', '--year', help="the year of birth", type=int, required=True)
-    parser.add_argument('-m', '--month', help="the month of birth", type=int, required=True)
-    parser.add_argument('-d', '--day', help="the day of birth", type=int, required=True)
-    parser.add_argument('-p', '--place', help="the place of birth. Remember to use \"\" if the place of birth "
-                                              "contains spaces ", type=str, required=True)
-    parser.add_argument('-g', '--gender', help="the gender", type=str, required=True)
+    parser.add_argument('surname', help="the surname", type=str)
+    parser.add_argument('name', help="the name", type=str)
+    parser.add_argument('year', help="the year of birth", type=int)
+    parser.add_argument('month', help="the month of birth", type=int)
+    parser.add_argument('day', help="the day of birth", type=int)
+    parser.add_argument('place', help="the place of birth. Remember to use \"\" if the place of birth "
+                                      "contains spaces ", type=str)
+    parser.add_argument('gender', help="the gender (M/F)", type=str)
     args = parser.parse_args()
     p0 = Person(args.surname, args.name, args.year, args.month, args.day, args.place, args.gender)
     print(p0)

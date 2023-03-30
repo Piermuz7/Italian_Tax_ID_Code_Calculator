@@ -18,7 +18,7 @@ First you have to install python libraries using pip:
 ```
 Then you can run the application:
 ```bash
- python3 tax_id_calculator.py --s SURNAME --n NAME --y YEAR_OF_BIRTH --m MONTH_OF_BIRTH --d DAY_OF_BIRTH --p PLACE_OF_BIRTH --g GENDER
+ python3 tax_id_calculator.py SURNAME NAME YEAR_OF_BIRTH MONTH_OF_BIRTH DAY_OF_BIRTH PLACE_OF_BIRTH GENDER
 ```
 If you have any doubts or problems while running the application, you can consult the options with the following command:
 ```bash
@@ -37,7 +37,7 @@ or
 
 1. Input person data, in this case the personal data of Mario Rossi:
 ```bash
- python3 tax_id_calculator.py --s Rossi --n Mario --y 1985 --m 12 --d 10 --p "San Giuliano Terme" --g M
+ python3 tax_id_calculator.py Rossi Mario 1985 12 10 "San Giuliano Terme" M
 ```
 2. If the data is correct, the output will be a printout with all the input data and the calculated tax code as the last line. 
 ```
