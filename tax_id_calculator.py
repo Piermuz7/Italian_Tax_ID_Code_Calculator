@@ -1,6 +1,16 @@
+"""
+__author__ = "Piermuz"
+__copyright__ = "Copyright 2023, Italian Tax ID Code Calculator"
+__credits__ = ["Piermichele Rosati"]
+__license__ = "GPL"
+__version__ = "1.0"
+__maintainer__ = "Piermichele Rosati"
+__email__ = "piermichele.rosati@gmail.com"
+"""
+
 import os
-from enum import Enum
 import pandas as pd
+import argparse
 
 
 class Person:
@@ -19,11 +29,6 @@ class Person:
                f"Name: {self.name}\n" \
                f"Birthday: {self.birth_day}/{self.birth_month}/{self.birth_year}\n" \
                f"Gender: {self.gender}"
-
-
-class Gender(Enum):
-    F = 0
-    M = 1
 
 
 class ItalianTaxIDCalculator(object):
@@ -104,7 +109,7 @@ class ItalianTaxIDCalculator(object):
 
     def __calculate_birth_day_gender_characters(self, gender, birth_day):
         s = str(birth_day)
-        if gender == Gender.M:
+        if gender == "M":
             if len(s) == 1:
                 s = "0" + s
         else:
@@ -181,7 +186,21 @@ class ItalianTaxIDCalculator(object):
 
 
 if __name__ == "__main__":
-    p0 = Person("Rosati", "Piermichele", 2000, 2, 1, "San Benedetto del Tronto", Gender.M)
+    parser = argparse.ArgumentParser(
+        prog="tax_id_calculator",
+        description="Calculate the Italian Tax ID for the given person data",
+        epilog="Piermuz thanks you for using %(prog)s ;)",
+    )
+    parser.add_argument('-s', '--surname', help="the surname", type=str, required=True)
+    parser.add_argument('-n', '--name', help="the name", type=str, required=True)
+    parser.add_argument('-y', '--year', help="the year of birth", type=int, required=True)
+    parser.add_argument('-m', '--month', help="the month of birth", type=int, required=True)
+    parser.add_argument('-d', '--day', help="the day of birth", type=int, required=True)
+    parser.add_argument('-p', '--place', help="the place of birth. Remember to use \"\" if the place of birth "
+                                              "contains spaces ", type=str, required=True)
+    parser.add_argument('-g', '--gender', help="the gender", type=str, required=True)
+    args = parser.parse_args()
+    p0 = Person(args.surname, args.name, args.year, args.month, args.day, args.place, args.gender)
     print(p0)
     generator = ItalianTaxIDCalculator().get_instance()
-    print(generator.generate_tax_ID(p0))
+    print(f"Tax ID code: {generator.generate_tax_ID(p0)}")
